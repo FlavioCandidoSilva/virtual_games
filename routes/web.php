@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome')->middleware('auth');
+// });
+
+Route::get('/', [App\Http\Controllers\IndexController::class, 'showIndex'])->middleware('auth')->name('home');
+
+
+// Route::get('/login', function () {
+//     return view('login.login');
+// });
