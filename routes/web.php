@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome')->middleware('auth');
-// });
+// INDEX
 
-Route::get('/', [App\Http\Controllers\IndexController::class, 'showIndex'])->middleware('auth')->name('home');
+Route::get('/', [App\Http\Controllers\IndexController::class , 'index'])->name('home');
+
+// AUTENTICAÇÃO
+
+Route::get('/login/{erro?}', [LoginController::class, 'index'])->name('login.login');
+Route::post('/login', [LoginController::class, 'autenticar']);
 
 
-// Route::get('/login', function () {
-//     return view('login.login');
-// });
+Route::get('/register', [LoginController::class, 'create'])->name('register.register');
+Route::post('/register', [LoginController::class, 'store']);
