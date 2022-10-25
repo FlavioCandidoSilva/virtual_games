@@ -26,15 +26,25 @@
                                 <div class="card-body">
                                     <form action={{ route('login.login') }} method="post">
                                         @csrf
-                                        <div class="form-floating mb-3">
-                                            <input name="email" value="{{ old('email') }}" type="text"
-                                                placeholder="email" class="borda-preta">
-                                            {{ $errors->has('email') ? $errors->first('email') : '' }}
+                                        <div class="row mb-3">
+                                            <div class="col-md-8">
+                                                <div class="form-floating mb-3">
+                                                    <input name="email" id="inputEmail" value="{{ old('email') }}" type="text"
+                                                        placeholder="name@example.com" class="form-control">
+                                                    {{ $errors->has('email') ? $errors->first('email') : '' }}
+                                                    <label for="inputEmail">Email</label>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-floating mb-3">
-                                            <input name="password" value="{{ old('password') }}" type="password"
-                                                placeholder="Senha" class="borda-preta">
-                                            {{ $errors->has('password') ? $errors->first('password') : '' }}
+                                        <div class="row mb-3">
+                                            <div class="col-md-8">
+                                                <div class="form-floating mb-3">
+                                                    <input name="password" value="{{ old('password') }}" type="password"
+                                                        placeholder="Senha" id="inputSenha" class="form-control">
+                                                    {{ $errors->has('password') ? $errors->first('password') : '' }}
+                                                    <label for="inputSenha">Senha</label>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-check mb-3">
                                             <input class="form-check-input" id="inputRememberPassword" type="checkbox"
@@ -42,13 +52,14 @@
                                             <label class="form-check-label" for="inputRememberPassword">Relembre</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="small" href="password.html">Esqueceu sua senha?</a>
-                                            <button type="submit" href="{{ route('home') }}" class="borda-preta">Acessar</button>
+                                            <button type="submit" href="{{ route('home') }}"
+                                                class="btn btn-primary">Acessar</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    <div class="small"><a href="register.html">Não tem conta? cadastre-se!</a></div>
+                                    <div class="small"><a href="{{ route('register.register') }}">Não tem conta?
+                                            cadastre-se!</a></div>
                                 </div>
                             </div>
                         </div>

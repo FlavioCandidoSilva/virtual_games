@@ -62,14 +62,14 @@
                                             </div>
                                         </div>
                                         <div class="mt-4 mb-0">
-                                            <button type="submit" class="d-grid" href="{{ route('login.login') }}">
+                                            <button type="submit" class="btn btn-primary" href="{{ route('login.login') }}">
                                                 Criar conta
                                             </button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    {{-- <div class="small"><a href="login.html">Já tem conta? faça po login</a></div> --}}
+                                    <div class="small"><a href="{{ route('login.login') }}">Já tem conta? faça login</a></div>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                        <div class="text-muted">Copyright &copy; 2022</div>
                         <div>
                             <a href="#">Privacy Policy</a>
                             &middot;

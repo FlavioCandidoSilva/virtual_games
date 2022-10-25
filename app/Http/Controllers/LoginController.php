@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -32,11 +32,11 @@ class LoginController extends Controller
         ]);
 
         $password = bcrypt($request->password);
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $password
-        ]);
+
+
+        if (!User::create(['name' => $request->name, 'email' => $request->email, 'password' => $password])) {
+            return redirect()->route('register.register')->with('error', 'Usuário já cadastrado!');
+        }
 
         return view('login.login');
     }
@@ -56,9 +56,8 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Email ou senha incorretos',
         ])->onlyInput('email');
-
     }
 
     public function sair()
