@@ -15,14 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 // INDEX
+Route::middleware(['auth'])->group(function () {
 
-Route::get('/', [App\Http\Controllers\IndexController::class , 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\IndexController::class , 'index'])->name('home');
+});
 
 // AUTENTICAÇÃO
 
-Route::get('/login/{erro?}', [LoginController::class, 'index'])->name('login.login');
+Route::get('/login/{erro?}', [LoginController::class, 'showIndex'])->name('login.login');
 Route::post('/login', [LoginController::class, 'autenticar']);
 
 
 Route::get('/register', [LoginController::class, 'create'])->name('register.register');
 Route::post('/register', [LoginController::class, 'store']);
+

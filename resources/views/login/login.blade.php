@@ -27,14 +27,14 @@
                                     <form action={{ route('login.login') }} method="post">
                                         @csrf
                                         <div class="form-floating mb-3">
-                                            <input name="usuario" value="{{ old('usuario') }}" type="text"
-                                                placeholder="Usuário" class="borda-preta">
-                                            {{ $errors->has('usuario') ? $errors->first('usuario') : '' }}
+                                            <input name="email" value="{{ old('email') }}" type="text"
+                                                placeholder="email" class="borda-preta">
+                                            {{ $errors->has('email') ? $errors->first('email') : '' }}
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input name="senha" value="{{ old('senha') }}" type="password"
+                                            <input name="password" value="{{ old('password') }}" type="password"
                                                 placeholder="Senha" class="borda-preta">
-                                            {{ $errors->has('senha') ? $errors->first('senha') : '' }}
+                                            {{ $errors->has('password') ? $errors->first('password') : '' }}
                                         </div>
                                         <div class="form-check mb-3">
                                             <input class="form-check-input" id="inputRememberPassword" type="checkbox"
