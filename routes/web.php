@@ -3,28 +3,21 @@
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// INDEX
-Route::middleware(['auth'])->group(function () {
-
-    Route::get('/', [App\Http\Controllers\IndexController::class , 'index'])->name('home');
-});
 
 // AUTENTICAÇÃO
 
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/', [App\Http\Controllers\IndexController::class , 'index'])->name('home');
+
+    Route::get('/sair', [App\Http\Controllers\LoginController::class , 'sair'])->name('sair');
+
+});
+
+// LOGIN E REGISTRO
+
 Route::get('/login/{erro?}', [LoginController::class, 'showIndex'])->name('login.login');
 Route::post('/login', [LoginController::class, 'autenticar']);
-
 
 Route::get('/register', [LoginController::class, 'create'])->name('register.register');
 Route::post('/register', [LoginController::class, 'store']);
