@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\Http\Requests\PostRequest;
-
 class LoginController extends Controller
 {
 
@@ -62,7 +61,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return view('welcome');
+            return redirect('/');
         }
 
         return back()->withErrors([
@@ -72,7 +71,7 @@ class LoginController extends Controller
 
     public function sair()
     {
-        session_destroy();
-        return view('login.login');
+        Auth::logout();
+        return redirect('login.login');
     }
 }
