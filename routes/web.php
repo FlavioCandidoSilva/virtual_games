@@ -22,3 +22,8 @@ Route::post('/login', [LoginController::class, 'autenticar']);
 Route::get('/register', [LoginController::class, 'create'])->name('register.register');
 Route::post('/register', [LoginController::class, 'store']);
 
+
+
+// CLIENTES
+
+Route::get('/clientes/create', [App\Http\Controllers\ClientesController::class , 'formCreate'])->name('clientes.create');

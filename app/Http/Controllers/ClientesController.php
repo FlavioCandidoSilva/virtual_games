@@ -15,10 +15,12 @@ class ClientesController extends Controller
         return view('welcome', compact('clientes'));
     }
 
-    // public function formCreate(){
+    public function formCreate(){
 
-    //     return view('')
-    // }
+        $clientes = Clientes::all();
+
+        return view('forms.clientesForm', compact('clientes'));
+    }
 
     public function createClientes(StorePostRequest $request){
 
