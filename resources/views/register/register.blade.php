@@ -25,14 +25,14 @@
                                     <h3 class="text-center font-weight-light my-4">Criar conta</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action={{ route('register.register') }} method="POST">
+                                    <form action={{ route('registerUser') }} method="POST">
                                         @csrf
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id="inputFirstName" type="text"
                                                         placeholder="Enter your first name" name="name"
-                                                        value="{{ old('name') }}" required/>
+                                                        value="{{ old('name') }}" required />
                                                     <label for="inputFirstName">Nome</label>
                                                 </div>
                                             </div>
@@ -40,7 +40,7 @@
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="inputEmail" type="email"
                                                 placeholder="name@example.com" value="{{ old('email') }}"
-                                                name="email"  required/>
+                                                name="email" required />
                                             <label for="inputEmail">Email</label>
                                         </div>
                                         <div class="row mb-3">
@@ -48,7 +48,7 @@
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id="inputPassword" type="password"
                                                         placeholder="Create a password" value="{{ old('password') }}"
-                                                        name="password"  required/>
+                                                        name="password" required />
                                                     <label for="inputPassword">Senha</label>
                                                 </div>
                                             </div>
@@ -56,13 +56,14 @@
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id="inputPasswordConfirm"
                                                         type="password" placeholder="Confirm password"
-                                                        value="{{ old('password_confirmation') }}" name="password"  required />
+                                                        value="{{ old('password_confirmation') }}" name="password"
+                                                        required />
                                                     <label for="inputPasswordConfirm">Confirmar senha</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="mt-4 mb-0">
-                                            <button type="submit" class="d-grid" href="{{ route('login.login') }}">
+                                            <button type="submit" class="d-grid" href="{{ route('loginUser') }}">
                                                 Criar conta
                                             </button>
                                         </div>

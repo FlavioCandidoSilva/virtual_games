@@ -15,14 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 // INDEX
-
-Route::get('/', [App\Http\Controllers\IndexController::class , 'index'])->name('home');
-
 // AUTENTICAÇÃO
 
-Route::get('/login/{erro?}', [LoginController::class, 'index'])->name('login.login');
-Route::post('/login', [LoginController::class, 'autenticar']);
+
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('loginUser');
+
+Route::post('/login', [\App\Http\Controllers\LoginController::class, 'autenticacao'])->name('autenticacao');
 
 
-Route::get('/register', [LoginController::class, 'create'])->name('register.register');
-Route::post('/register', [LoginController::class, 'store']);
+Route::get('/register/create', [\App\Http\Controllers\LoginController::class, 'createUser'])->name('registerUser');
+
+Route::post('/register/create', [\App\Http\Controllers\LoginController::class, 'storeUser']);
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('dashboard');
+});

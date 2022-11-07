@@ -24,26 +24,27 @@
                                     <h3 class="text-center font-weight-light my-4">Login</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action={{ route('login.login') }} method="post">
+                                    <form action={{ route('autenticacao') }} method="POST">
                                         @csrf
                                         <div class="form-floating mb-3">
-                                            <input name="usuario" value="{{ old('usuario') }}" type="text"
+                                            <input  :value="{{ old('email') }}" id="email" name="email" type="text"
                                                 placeholder="Usuário" class="borda-preta">
-                                            {{ $errors->has('usuario') ? $errors->first('usuario') : '' }}
+                                            {{ $errors->has('email') ? $errors->first('email') : '' }}
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input name="senha" value="{{ old('senha') }}" type="password"
+                                            <input  :value="{{ old('password') }}" name="password" id="password" type="password"
                                                 placeholder="Senha" class="borda-preta">
-                                            {{ $errors->has('senha') ? $errors->first('senha') : '' }}
+                                            {{ $errors->has('password') ? $errors->first('password') : '' }}
                                         </div>
-                                        <div class="form-check mb-3">
+                                        {{-- <div class="form-check mb-3">
                                             <input class="form-check-input" id="inputRememberPassword" type="checkbox"
                                                 value="" />
                                             <label class="form-check-label" for="inputRememberPassword">Relembre</label>
-                                        </div>
+                                        </div> --}}
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="password.html">Esqueceu sua senha?</a>
-                                            <button type="submit" href="{{ route('home') }}" class="borda-preta">Acessar</button>
+                                            <button type="submit" href="{{ route('dashboard') }}"
+                                                class="borda-preta">Acessar</button>
                                         </div>
                                     </form>
                                 </div>
