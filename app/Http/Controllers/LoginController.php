@@ -4,24 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
+use App\Post;
+use App\Http\Requests\PostRequest;
 class LoginController extends Controller
 {
 
-
-    public function login()
-    {
-        return view('login.login');
-    }
-
-    public function createUser()
+    public function create()
     {
         return view('register.register');
     }
 
-    public function storeUser(Request $request)
+    public function showIndex()
+    {
+        return view('login.login');
+    }
+
+    public function store(Request $request)
     {
 
         $this->validate(request(), [
@@ -30,33 +30,48 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        $user = User::create(request(['name', 'email', 'password']));
+        $password = bcrypt($request->password);
 
-        return route('loginUser');
+            $user = User::firstOrCreate(['email' => $request->email], [
+                'email' => $request->email,
+                'name' => $request->name,
+                'password' => $password
+            ]);
+
+            if ($user->wasRecentlyCreated) {
+                toastr()->success('Usuário cadastrado com sucesso!');
+                return redirect()->route('login.login');
+            } else {
+                toastr()->error('Erro, usuário já cadastrado!');
+                return redirect()->route('register.register');
+            }
+
+
+        return view('login.login');
     }
 
-    public function  autenticacao(Request $request)
+    public function autenticar(Request $request)
     {
+
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
         if (Auth::attempt($credentials)) {
-            session_start();
             $request->session()->regenerate();
-            return route('dashboard');
+
+            return redirect('/');
         }
 
         return back()->withErrors([
-            'email' => 'Usuário e/ou senha invalido(s)',
-        ]);
+            'email' => 'Email ou senha incorretos',
+        ])->onlyInput('email');
     }
-
 
     public function sair()
     {
-        session_destroy();
-        return route('login.index');
+        Auth::logout();
+        return redirect('login.login');
     }
 }

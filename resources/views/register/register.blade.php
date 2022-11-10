@@ -25,7 +25,7 @@
                                     <h3 class="text-center font-weight-light my-4">Criar conta</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form action={{ route('registerUser') }} method="POST">
+                                    <form action={{ route('register.register') }} method="POST">
                                         @csrf
                                         <div class="row mb-3">
                                             <div class="col-md-6">
@@ -63,14 +63,16 @@
                                             </div>
                                         </div>
                                         <div class="mt-4 mb-0">
-                                            <button type="submit" class="d-grid" href="{{ route('loginUser') }}">
+                                            <button type="submit" class="btn btn-primary"
+                                                href="{{ route('login.login') }}">
                                                 Criar conta
                                             </button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    {{-- <div class="small"><a href="login.html">Já tem conta? faça po login</a></div> --}}
+                                    <div class="small"><a href="{{ route('login.login') }}">Já tem conta? faça
+                                            login</a></div>
                                 </div>
                             </div>
                         </div>
@@ -82,7 +84,7 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                        <div class="text-muted">Copyright &copy; 2022</div>
                         <div>
                             <a href="#">Privacy Policy</a>
                             &middot;
