@@ -31,7 +31,6 @@ class ClientesController extends Controller
         }
 
 
-
     }
 
 }

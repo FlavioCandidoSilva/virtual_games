@@ -22,7 +22,9 @@ Route::post('/login', [LoginController::class, 'autenticar']);
 Route::get('/register', [LoginController::class, 'create'])->name('register.register');
 Route::post('/register', [LoginController::class, 'store']);
 
+//LOGOUT
 
+Route::get('/logout', [LoginController::class, 'sair'])->name('logout.logout');
 
 // CLIENTES
 
