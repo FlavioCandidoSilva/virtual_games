@@ -29,8 +29,9 @@
                                         <div class="row mb-3">
                                             <div class="col-md-8">
                                                 <div class="form-floating mb-3">
-                                                    <input name="email" id="inputEmail" value="{{ old('email') }}" type="text"
-                                                        placeholder="name@example.com" class="form-control">
+                                                    <input name="email" id="inputEmail" value="{{ old('email') }}"
+                                                        type="text" placeholder="name@example.com"
+                                                        class="form-control">
                                                     {{ $errors->has('email') ? $errors->first('email') : '' }}
                                                     <label for="inputEmail">Email</label>
                                                 </div>

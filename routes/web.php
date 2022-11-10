@@ -28,4 +28,10 @@ Route::get('/logout', [LoginController::class, 'sair'])->name('logout.logout');
 
 // CLIENTES
 
+Route::middleware(['auth'])->group(function () {
+
 Route::get('/clientes/create', [App\Http\Controllers\ClientesController::class , 'formCreate'])->name('clientes.create');
+
+Route::post('/clientes/create', [App\Http\Controllers\ClientesController::class , 'createClientes'])->name('clientes.store');
+
+});

@@ -3,7 +3,7 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Clientes</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Clientes</li>
+            <li class="breadcrumb-item active ">{{ Breadcrumbs::render('home') }}</li>
         </ol>
         <div class="card mb-4">
             <div class="card-header">
@@ -25,14 +25,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                        </tr>
+                        @forelse ($clientes as $cliente)
+                            <tr>
+                                <td>{{ $cliente->nome }}</td>
+                                <td>{{ $cliente->cpf }}</td>
+                                <td>{{ $cliente->email }}</td>
+                                <td>
+                                    {{ $cliente->produto}}
+                                </td>
+                                <td> {{  \Carbon\Carbon::parse($cliente->created_at)->format('d/m/Y') }}</td>
+                                <td></td>
+                            </tr>
+                        @empty
+                            <td>Nenhum cliente cadastrado</td>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

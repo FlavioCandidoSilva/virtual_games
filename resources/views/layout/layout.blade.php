@@ -8,9 +8,10 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Vritual games - Admin</title>
-    <link href="{{ asset('css/styles.css' )}}" rel="stylesheet" />
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap.min.css') }}">
 </head>
 
 <body class="sb-nav-fixed">
@@ -23,10 +24,10 @@
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
-                    aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-                        class="fas fa-search"></i></button>
+                {{-- <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" /> --}}
+                {{-- <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button> --}}
             </div>
         </form>
         <!-- Navbar-->
@@ -51,7 +52,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Inicio</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="{{ route('home') }}">
                             <div class="sb-nav-link-icon"><i class='fas fa-chart-pie'></i></div>
                             Inicio
                         </a>
@@ -127,8 +128,10 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid px-4">
-                  @yield('content')
+                <div class="container ">
+                    <div class="container-fluid px-4">
+                        @yield('content')
+                    </div>
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
@@ -158,6 +161,10 @@
                     "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/pt-PT.json"
                 }
             });
+        });
+
+        tinymce.init({
+            selector: 'textarea',
         });
     </script>
 </body>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Clientes;
 
 use Illuminate\Http\Request;
 
@@ -8,6 +9,8 @@ class IndexController extends Controller
 {
     public function index(){
 
-        return view('welcome');
+        $clientes =  Clientes::all();
+
+        return view('welcome', compact('clientes'));
     }
 }

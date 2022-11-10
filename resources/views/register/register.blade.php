@@ -32,7 +32,7 @@
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id="inputFirstName" type="text"
                                                         placeholder="Enter your first name" name="name"
-                                                        value="{{ old('name') }}" required/>
+                                                        value="{{ old('name') }}" required />
                                                     <label for="inputFirstName">Nome</label>
                                                 </div>
                                             </div>
@@ -40,7 +40,7 @@
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="inputEmail" type="email"
                                                 placeholder="name@example.com" value="{{ old('email') }}"
-                                                name="email"  required/>
+                                                name="email" required />
                                             <label for="inputEmail">Email</label>
                                         </div>
                                         <div class="row mb-3">
@@ -48,7 +48,7 @@
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id="inputPassword" type="password"
                                                         placeholder="Create a password" value="{{ old('password') }}"
-                                                        name="password"  required/>
+                                                        name="password" required />
                                                     <label for="inputPassword">Senha</label>
                                                 </div>
                                             </div>
@@ -56,20 +56,23 @@
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" id="inputPasswordConfirm"
                                                         type="password" placeholder="Confirm password"
-                                                        value="{{ old('password_confirmation') }}" name="password"  required />
+                                                        value="{{ old('password_confirmation') }}" name="password"
+                                                        required />
                                                     <label for="inputPasswordConfirm">Confirmar senha</label>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="mt-4 mb-0">
-                                            <button type="submit" class="btn btn-primary" href="{{ route('login.login') }}">
+                                            <button type="submit" class="btn btn-primary"
+                                                href="{{ route('login.login') }}">
                                                 Criar conta
                                             </button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    <div class="small"><a href="{{ route('login.login') }}">Já tem conta? faça login</a></div>
+                                    <div class="small"><a href="{{ route('login.login') }}">Já tem conta? faça
+                                            login</a></div>
                                 </div>
                             </div>
                         </div>

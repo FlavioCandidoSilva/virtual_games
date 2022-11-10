@@ -8,13 +8,6 @@ use App\Http\Requests\StorePostRequest;
 class ClientesController extends Controller
 {
 
-    public function showClientes(){
-
-        $clientes =  Clientes::all();
-
-        return view('welcome', compact('clientes'));
-    }
-
     public function formCreate(){
 
         $clientes = Clientes::all();
@@ -22,13 +15,15 @@ class ClientesController extends Controller
         return view('forms.clientesForm', compact('clientes'));
     }
 
-    public function createClientes(StorePostRequest $request){
+    public function createClientes(Request $request){
 
         $clientes = Clientes::create($request->all());
 
         if(!$clientes){
             return redirect()->back()->with('error', 'Algo deu errado!');
         }
+
+        return redirect()->route('home')->with('success', 'Cliente cadastrado com sucesso!');
 
 
     }
