@@ -8,6 +8,13 @@ use App\Http\Requests\StorePostRequest;
 class ClientesController extends Controller
 {
 
+    public function index(){
+
+        $clientes =  Clientes::all();
+
+        return view('welcome', compact('clientes'));
+    }
+
     public function formCreate(){
 
         $clientes = Clientes::all();
@@ -25,6 +32,13 @@ class ClientesController extends Controller
 
         return redirect()->route('home')->with('success', 'Cliente cadastrado com sucesso!');
 
+    }
+
+    public function editClientes($id){
+
+            $clientes = Clientes::findOrFail($id);
+
+            return view('editClient', compact('clientes'));
 
     }
 

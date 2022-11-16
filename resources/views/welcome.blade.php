@@ -9,7 +9,7 @@
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Visualização de clientes
-                <a class="btn btn-primary float-end" href="{{ route('clientes.create') }}">Novo
+                <a class="btn btn-primary float-end" href="{{ route('clientes.create') }}"><i class="fa-solid fa-user-plus"></i> Novo
                     cliente</a>
             </div>
             <div class="card-body">
@@ -19,7 +19,6 @@
                             <th>Nome</th>
                             <th>CPF</th>
                             <th>Email</th>
-                            <th>Produto</th>
                             <th>Data de cadastro</th>
                             <th>Detalhes</th>
                         </tr>
@@ -28,13 +27,10 @@
                         @forelse ($clientes as $cliente)
                             <tr>
                                 <td>{{ $cliente->nome }}</td>
-                                <td>{{ $cliente->cpf }}</td>
-                                <td>{{ $cliente->email }}</td>
-                                <td>
-                                    {{ $cliente->produto}}
-                                </td>
+                                <td>{{ $cliente->cpf ?? '-'}}</td>
+                                <td>{{ $cliente->email ?? '-'}}</td>
                                 <td> {{  \Carbon\Carbon::parse($cliente->created_at)->format('d/m/Y') }}</td>
-                                <td></td>
+                                <td><a class="btn btn-primary" type="button" href="{{ route('clientes.edit', $cliente->id)}}"><i class="fa-regular fa-pen-to-square"></i> Detalhes</a></td>
                             </tr>
                         @empty
                             <td>Nenhum cliente cadastrado</td>

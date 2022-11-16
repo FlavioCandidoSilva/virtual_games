@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/', [App\Http\Controllers\IndexController::class , 'index'])->name('home');
-
+    Route::get('/', [App\Http\Controllers\ClientesController::class , 'index'])->name('home');
     Route::get('/sair', [App\Http\Controllers\LoginController::class , 'sair'])->name('sair');
 
 });
@@ -31,7 +30,8 @@ Route::get('/logout', [LoginController::class, 'sair'])->name('logout.logout');
 Route::middleware(['auth'])->group(function () {
 
 Route::get('/clientes/create', [App\Http\Controllers\ClientesController::class , 'formCreate'])->name('clientes.create');
-
 Route::post('/clientes/create', [App\Http\Controllers\ClientesController::class , 'createClientes'])->name('clientes.store');
+Route::get('/clientes/edit/{id}', [App\Http\Controllers\ClientesController::class , 'editClientes'])->name('clientes.edit');
+
 
 });
