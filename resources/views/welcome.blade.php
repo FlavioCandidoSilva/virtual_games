@@ -33,7 +33,7 @@
                                 <td><a class="btn btn-primary" type="button" href="{{ route('clientes.edit', $cliente->id)}}"><i class="fa-regular fa-pen-to-square"></i> Detalhes</a></td>
                             </tr>
                         @empty
-                            <td>Nenhum cliente cadastrado</td>
+
                         @endforelse
                     </tbody>
                 </table>

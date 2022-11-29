@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Clientes;
 use App\Http\Requests\StorePostRequest;
-
 class ClientesController extends Controller
 {
 
@@ -24,6 +23,7 @@ class ClientesController extends Controller
 
     public function createClientes(Request $request){
 
+
         $clientes = Clientes::create($request->all());
 
         if(!$clientes){
@@ -38,7 +38,23 @@ class ClientesController extends Controller
 
             $clientes = Clientes::findOrFail($id);
 
-            return view('editClient', compact('clientes'));
+            return view('forms.editClient', compact('clientes'));
+
+    }
+
+
+    public function updateClientes(Request $request, $id){
+
+
+            $clientes = Clientes::findOrFail($id);
+
+            $clientes->update($request->all());
+
+            if(!$clientes){
+                return redirect()->back()->with('error', 'Algo deu errado!');
+            }
+
+            return redirect()->route('home')->with('success', 'Cliente atualizado com sucesso!');
 
     }
 

@@ -12,3 +12,9 @@ Breadcrumbs::for('clientesCreate', function ($trail) {
     $trail->parent('home');
     $trail->push('Criação de clientes', route('clientes.create'));
 });
+
+
+Breadcrumbs::for('clientesUpdate', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Atualizar cliente', route('clientes.edit'));
+});
