@@ -33,5 +33,7 @@ Route::get('/clientes/create', [App\Http\Controllers\ClientesController::class ,
 Route::post('/clientes/create', [App\Http\Controllers\ClientesController::class , 'createClientes'])->name('clientes.store');
 Route::get('/clientes/edit/{id}', [App\Http\Controllers\ClientesController::class , 'editClientes'])->name('clientes.edit');
 Route::post('/clientes/edit/{id}', [App\Http\Controllers\ClientesController::class , 'updateClientes'])->name('clientes.update');
+Route::get('/clientes/delete/{id}', [App\Http\Controllers\ClientesController::class , 'deleteClientes'])->name('clientes.delete');
+
 
 });

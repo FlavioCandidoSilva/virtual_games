@@ -37,11 +37,9 @@
                 <div>
                     <div class="form-group mt-2">
                         <label for="exampleInputEmail1">Observações</label></label>
-                        <textarea name="description" class="form-control textarea" maxlength="14"></textarea>
+                        <textarea name="description" class="form-control textarea"></textarea>
                     </div>
                 </div>
-
-
 
             </div>
             <div class="card-footer mt-2">

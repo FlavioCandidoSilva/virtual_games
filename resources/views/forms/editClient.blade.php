@@ -16,7 +16,7 @@
 
                 <div class="form-group mt-2">
                     <label for="exampleInputEmail1">Email</label>
-                    <input name="email" value="{{ $clientes->email }}" class="form-control" placeholder="Digite o email">
+                    <input name="email" value="{{ $clientes->email }}" type="email" class="form-control" placeholder="Digite o email">
                 </div>
                 <div class="form-group mt-2">
                     <label for="exampleInputEmail1">Endereço</label>
@@ -25,20 +25,20 @@
                 </div>
                 <div class="form-group mt-2">
                     <label for="exampleInputEmail1">Cpf </label>
-                    <input name="cpf" class="form-control" value="{{ $clientes->cpf }}" maxlength="14"
-                        placeholder="Digite o cpf">
+                    <input name="cpf" class="form-control" value="{{ $clientes->cpf }}"  data-mask="000.000.000-00" placeholder="000.000.000-00" maxlength="14"
+                       >
                 </div>
 
                 <div class="form-group mt-2">
                     <label for="exampleInputEmail1">Telefone </label>
-                    <input name="telefone" value="{{ $clientes->telefone }}" class="form-control " maxlength="14"
+                    <input name="telefone" value="{{ $clientes->telefone }}" placeholder="9999-9999"  data-mask="0000-0000" pattern="[0-9]{3,4}-[0-9]{4}" class="form-control " maxlength="9"
                         placeholder="Digite o telefone">
                 </div>
 
                 <div>
                     <div class="form-group mt-2">
                         <label for="exampleInputEmail1">Observações</label></label>
-                        <textarea name="description" value="{{ $clientes->description }}" class="form-control textarea" maxlength="14"></textarea>
+                        <textarea name="description" value="{{ $clientes->description }}" class="form-control textarea" maxlength="14">{{ $clientes->description }}</textarea>
                     </div>
                 </div>
 

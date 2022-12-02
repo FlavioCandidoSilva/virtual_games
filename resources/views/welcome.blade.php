@@ -9,7 +9,8 @@
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
                 Visualização de clientes
-                <a class="btn btn-primary float-end" href="{{ route('clientes.create') }}"><i class="fa-solid fa-user-plus"></i> Novo
+                <a class="btn btn-primary float-end" href="{{ route('clientes.create') }}"><i
+                        class="fa-solid fa-user-plus"></i> Novo
                     cliente</a>
             </div>
             <div class="card-body">
@@ -19,21 +20,29 @@
                             <th>Nome</th>
                             <th>CPF</th>
                             <th>Email</th>
+                            <th>Telefone</th>
                             <th>Data de cadastro</th>
                             <th>Detalhes</th>
+                            <th>Excluir</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($clientes as $cliente)
                             <tr>
                                 <td>{{ $cliente->nome }}</td>
-                                <td>{{ $cliente->cpf ?? '-'}}</td>
-                                <td>{{ $cliente->email ?? '-'}}</td>
-                                <td> {{  \Carbon\Carbon::parse($cliente->created_at)->format('d/m/Y') }}</td>
-                                <td><a class="btn btn-primary" type="button" href="{{ route('clientes.edit', $cliente->id)}}"><i class="fa-regular fa-pen-to-square"></i> Detalhes</a></td>
+                                <td>{{ $cliente->cpf ?? '-' }}</td>
+                                <td>{{ $cliente->email ?? '-' }}</td>
+                                <td>{{ $cliente->telefone ?? '-' }}</td>
+                                <td> {{ \Carbon\Carbon::parse($cliente->created_at)->format('d/m/Y') }}</td>
+                                <td><a class="btn btn-primary" type="button"
+                                        href="{{ route('clientes.edit', $cliente->id) }}"><i
+                                            class="fa-regular fa-pen-to-square"></i> Detalhes</a></td>
+                                <td><a class="btn btn-danger" type="button" value="Excluir" data-toggle="modal"
+                                        data-url="{{ route('clientes.delete', $cliente->id) }}"
+                                        data-target="#modal-delete-cliente"><i class="fa-solid fa-trash"></i> Excluir</a>
+                                </td>
                             </tr>
                         @empty
-
                         @endforelse
                     </tbody>
                 </table>
@@ -41,3 +50,11 @@
         </div>
     </div>
 @endsection
+
+@section('script')
+<script>
+      $('#modal-delete-cliente').on('show.bs.modal', function(event) {
+            let url = event.relatedTarget.getAttribute('data-url')
+            $('#form-modal-delete-cliente').attr('action', url);
+        })
+</script>

@@ -10,10 +10,18 @@
     <title>Vritual games - Admin</title>
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap.min.css') }}">
-
+    <script src="https://cdn.tiny.cloud/1/6z4wokhcg73gr9pok2p1im5h6uh27kdr8cov11arlri59rdw/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+        });
+    </script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -38,12 +46,12 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><a class="dropdown-item" href="#!">Configurações</a></li>
+                    <li><a class="dropdown-item" href="#!">Usuários ativos</a></li>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="{{ route('logout.logout')}}">Deslogar</a></li>
+                    <li><a class="dropdown-item" href="{{ route('logout.logout') }}">Deslogar</a></li>
                 </ul>
             </li>
         </ul>
@@ -145,6 +153,7 @@
             </footer>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="{{ asset('js/scripts.js') }}"></script>
@@ -152,12 +161,13 @@
     <script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script>
     <script src="{{ asset('js/datatables-simple-demo.js') }}"></script>
-    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-    <script src="{{ asset('/resources/js/app.js')}}"></script>
+    <script src="{{ asset('/resources/js/app.js') }}"></script>
 
 
+    @yield('script')
     <script>
         $(document).ready(function() {
             $('#datatable').DataTable({
@@ -166,11 +176,8 @@
                 }
             });
         });
-
-        tinymce.init({
-            selector: 'textarea',
-        });
     </script>
+
 </body>
 
 </html>

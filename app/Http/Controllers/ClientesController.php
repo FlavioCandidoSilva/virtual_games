@@ -9,7 +9,7 @@ class ClientesController extends Controller
 
     public function index(){
 
-        $clientes =  Clientes::all();
+        $clientes =  Clientes::orderBy('created_at', 'DESC')->get();
 
         return view('welcome', compact('clientes'));
     }
@@ -55,6 +55,20 @@ class ClientesController extends Controller
             }
 
             return redirect()->route('home')->with('success', 'Cliente atualizado com sucesso!');
+
+    }
+
+    public function deleteClientes($id){
+
+        $clientes = Clientes::findOrFail($id);
+
+        $clientes->delete();
+
+        if(!$clientes){
+            return redirect()->back()->with('error', 'Algo deu errado!');
+        }
+
+        return redirect()->route('home')->with('success', 'Cliente deletado com sucesso!');
 
     }
 
