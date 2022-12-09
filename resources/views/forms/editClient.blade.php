@@ -38,7 +38,7 @@
                 <div>
                     <div class="form-group mt-2">
                         <label for="exampleInputEmail1">Observações</label></label>
-                        <textarea name="description" value="{{ $clientes->description }}" class="form-control textarea" maxlength="14">{{ $clientes->description }}</textarea>
+                        <textarea name="description" value="{{ $clientes->description }}" class="form-control textarea">{{ $clientes->description }}</textarea>
                     </div>
                 </div>
 

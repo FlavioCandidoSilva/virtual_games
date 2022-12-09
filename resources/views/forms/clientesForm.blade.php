@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('layout.layout')
 @section('content')
     <form action="{{ route('clientes.store') }}" method="POST">
         @csrf

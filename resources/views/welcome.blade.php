@@ -37,11 +37,10 @@
                                 <td><a class="btn btn-primary" type="button"
                                         href="{{ route('clientes.edit', $cliente->id) }}"><i
                                             class="fa-regular fa-pen-to-square"></i> Detalhes</a></td>
-                                <td><a class="btn btn-danger" type="button" value="Excluir" data-toggle="modal"
-                                        data-url="{{ route('clientes.delete', $cliente->id) }}"
-                                        data-target="#modal-delete-cliente"><i class="fa-solid fa-trash"></i> Excluir</a>
-                                </td>
+                                <td><a class="btn btn-danger" type="button" value="Excluir" data-bs-toggle="modal"
+                                        data-bs-target="#modal-delete-cliente"><i class="fa-solid fa-trash"></i> Excluir</a>
                             </tr>
+                            @include('modal.alertaDeletar')
                         @empty
                         @endforelse
                     </tbody>
@@ -49,12 +48,12 @@
             </div>
         </div>
     </div>
+
+
+
 @endsection
 
 @section('script')
-<script>
-      $('#modal-delete-cliente').on('show.bs.modal', function(event) {
-            let url = event.relatedTarget.getAttribute('data-url')
-            $('#form-modal-delete-cliente').attr('action', url);
-        })
-</script>
+    <script>
+        $('#modal-delete-cliente').on('show.bs.modal', function(event) {})
+    </script>

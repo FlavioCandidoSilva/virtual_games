@@ -48,9 +48,7 @@ class ClientesController extends Controller
 
             $clientes = Clientes::findOrFail($id);
 
-            $clientes->update($request->all());
-
-            if(!$clientes){
+            if(!$clientes->update($request->all())){
                 return redirect()->back()->with('error', 'Algo deu errado!');
             }
 
@@ -62,9 +60,7 @@ class ClientesController extends Controller
 
         $clientes = Clientes::findOrFail($id);
 
-        $clientes->delete();
-
-        if(!$clientes){
+        if(!$clientes->delete()){
             return redirect()->back()->with('error', 'Algo deu errado!');
         }
 
