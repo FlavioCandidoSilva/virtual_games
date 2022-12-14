@@ -1,7 +1,9 @@
 @extends('layout.layout')
 @section('content')
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">Clientes</h1>
+    <div class="container-fluid">
+        <div class="card-header row">
+            <h1 class="mt-4">Clientes</h1>
+        </div>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active ">{{ Breadcrumbs::render('home') }}</li>
         </ol>

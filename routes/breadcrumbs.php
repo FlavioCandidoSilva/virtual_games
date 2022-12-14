@@ -18,3 +18,9 @@ Breadcrumbs::for('clientesUpdate', function ($trail) {
     $trail->parent('home');
     $trail->push('Atualizar cliente', route('clientes.edit'));
 });
+
+
+Breadcrumbs::for('status.show', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Listagem de status', route('status.show'));
+});

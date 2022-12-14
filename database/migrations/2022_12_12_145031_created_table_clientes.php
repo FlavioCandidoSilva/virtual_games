@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatedCliente extends Migration
+class CreatedTableClientes extends Migration
 {
     /**
      * Run the migrations.
@@ -17,16 +17,17 @@ class CreatedCliente extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->text('email');
-            $table->string('description');
-            $table->text('endereco');
-            $table->text('cpf');
-            $table->text('telefone');
+            $table->text('email')->nullable();
+            $table->string('description')->nullable();
+            $table->text('endereco')->nullable();
+            $table->text('cpf')->nullable();
+            $table->text('telefone')->nullable();
+            $table->unsignedBigInteger('status_id')->nullable();
+            $table->foreign('status_id')->references('id')->on('status');
             $table->timestamps();
             $table->softDeletes();
         });
     }
-
     /**
      * Reverse the migrations.
      *

@@ -66,7 +66,7 @@
                            Clientes
                         </a>
                         <div class="sb-sidenav-menu-heading">Gerenciamento</div>
-                        <a class="nav-link" href="{{ route('home') }}">
+                        <a class="nav-link" href="{{ route('status.show') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-signal"></i></div>
                           Status
                         </a>
