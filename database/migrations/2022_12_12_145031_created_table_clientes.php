@@ -22,6 +22,7 @@ class CreatedTableClientes extends Migration
             $table->text('endereco')->nullable();
             $table->text('cpf')->nullable();
             $table->text('telefone')->nullable();
+            $table->date('dataEntrega')->nullable();
             $table->unsignedBigInteger('status_id')->nullable();
             $table->foreign('status_id')->references('id')->on('status');
             $table->timestamps();

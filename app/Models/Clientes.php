@@ -15,7 +15,8 @@ class Clientes extends Model
         'description',
         'endereco',
         'cpf',
-        'telefone'
+        'telefone',
+        'dataEntrega'
 
     ];
 

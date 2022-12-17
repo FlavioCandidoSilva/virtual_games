@@ -19,6 +19,7 @@
                 <table id="datatable" class=" table table-striped">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Nome</th>
                             <th>CPF</th>
                             <th>Email</th>
@@ -31,6 +32,7 @@
                     <tbody>
                         @forelse ($clientes as $cliente)
                             <tr>
+                                <td>{{ $cliente->id }}</td>
                                 <td>{{ $cliente->nome }}</td>
                                 <td>{{ $cliente->cpf ?? '-' }}</td>
                                 <td>{{ $cliente->email ?? '-' }}</td>

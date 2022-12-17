@@ -35,5 +35,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/clientes/delete/{id}', [App\Http\Controllers\ClientesController::class, 'deleteClientes'])->name('clientes.delete');
 
     Route::get('/status', [App\Http\Controllers\StatusController::class, 'showStatus'])->name('status.show');
+    Route::get('/status/create', [App\Http\Controllers\StatusController::class, 'createStatus'])->name('status.create');
+    Route::post('/status/create', [App\Http\Controllers\StatusController::class, 'storeStatus'])->name('status.store');
+    Route::post('/status/edit/{id}', [App\Http\Controllers\StatusController::class, 'updateStatus'])->name('status.update');
+    Route::get('/status/edit/{id}', [App\Http\Controllers\StatusController::class, 'editStatus'])->name('status.edit');
+
+
 
 });

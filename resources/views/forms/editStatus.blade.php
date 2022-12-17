@@ -1,11 +1,11 @@
-<div class="modal fade" id="modal-status-cliente" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
-    tabindex="-1">
-    <form id="form-modal-status-cliente" action="{{ route('status.store')}}" method="POST">
+@extends('layout.layout')
+@section('content')
+    <form action="{{route('status.update', $status->id)}}" method="POST">
         @csrf
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Criar um novo status
+                    <h5 class="modal-title" id="exampleModalLabel"> Atualizar status
                     </h5>
                 </div>
                 <div class="modal-body">
@@ -13,14 +13,14 @@
                         <div class="form-group mb-3">
                             <label for="exampleInputName">Nome <b style="color: red">*</b></label>
                             <input name="name" class="form-control" maxlength="45"
-                                placeholder="Digite o nome do status" required>
+                                placeholder="Digite o nome do status" value="{{ $status->name }}" required>
                         </div>
                         <div class="form-group col-2 mb-3">
                             <label for="exampleInputColor">Cor</label>
-                            <input name="color" class="form-control" value="#000000" type="color">
+                            <input name="color" class="form-control" value="{{ $status->color }}" type="color">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            <a type="button" class="btn btn-secondary" href="{{route('status.show')}}">Volar</a>
                             <button type="submit" class="btn btn-primary">Salvar</button>
                         </div>
                     </div>
@@ -29,3 +29,4 @@
         </div>
     </form>
 </div>
+@endsection

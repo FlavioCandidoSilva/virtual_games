@@ -15,26 +15,38 @@ class StatusController extends Controller
 
     public function createStatus()
     {
-        return view('forms.status');
+        $status = Status::all();
+        return view('forms.statusForm', compact('status'));
     }
 
     public function storeStatus(Request $request){
 
-        $clientes = Status::create($request->all());
+        $status = Status::create($request->all());
 
-        if(!$clientes){
+        if(!$status){
             return redirect()->back()->with('error', 'Algo deu errado!');
         }
 
-        return redirect()->route('home')->with('success', 'Status cadastrado com sucesso!');
+        return redirect()->route('status.show')->with('success', 'Status cadastrado com sucesso!');
 
     }
 
-
-    public function edit($id)
+    public function editStatus($id)
     {
         $status = Status::find($id);
-        return view('status.edit', compact('status'));
+
+        return view('forms.editStatus', compact('status'));
+    }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $status = Status::findOrFail($id);
+
+        if(!$status->update($request->all())){
+            return redirect()->back()->with('error', 'Algo deu errado!');
+        }
+
+        return redirect()->route('status.show')->with('success', 'Status atualizado com sucesso!');
     }
 
 }

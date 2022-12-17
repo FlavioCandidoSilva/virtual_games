@@ -23,18 +23,24 @@
                     <input name="endereco" value="{{ $clientes->endereco }}" class="form-control" maxlength="45"
                         placeholder="Digite o endereço">
                 </div>
-                <div class="form-group mt-2">
-                    <label for="exampleInputEmail1">Cpf </label>
-                    <input name="cpf" class="form-control" value="{{ $clientes->cpf }}"  data-mask="000.000.000-00" placeholder="000.000.000-00" maxlength="14"
-                       >
+                <div class="col-12">
+                    <div class="row">
+                        <div class="form-group mt-2 col-2">
+                            <label for="exampleInputEmail1">Cpf </label>
+                            <input name="cpf" id="cpf" class="form-control cpf" data-mask="000.000.000-00"
+                                maxlength="14"  value="{{ $clientes->cpf }}"  placeholder="000.000.000-00">
+                        </div>
+                        <div class="form-group mt-2 col-2">
+                            <label for="exampleInputEmail1">Telefone </label>
+                            <input name="telefone" id="telefone" placeholder="(99) 9999-9999" data-mask="(99) 9999-9999"
+                                inputmode="text"  value="{{ $clientes->telefone }}" class="form-control" maxlength="9">
+                        </div>
+                        <div class="form-group mt-2 col-2">
+                            <label for="exampleInputEmail1">Data de entrega </label>
+                            <input type="date" value="{{ $clientes->dataEntrega }}" class="form-control" name="dataEntrega">
+                        </div>
+                    </div>
                 </div>
-
-                <div class="form-group mt-2">
-                    <label for="exampleInputEmail1">Telefone </label>
-                    <input name="telefone" value="{{ $clientes->telefone }}" placeholder="9999-9999"  data-mask="0000-0000" pattern="[0-9]{3,4}-[0-9]{4}" class="form-control " maxlength="9"
-                        placeholder="Digite o telefone">
-                </div>
-
                 <div>
                     <div class="form-group mt-2">
                         <label for="exampleInputEmail1">Observações</label></label>
