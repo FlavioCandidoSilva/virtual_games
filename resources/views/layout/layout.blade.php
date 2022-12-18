@@ -16,11 +16,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <script src="https://cdn.tiny.cloud/1/6z4wokhcg73gr9pok2p1im5h6uh27kdr8cov11arlri59rdw/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script>
         tinymce.init({
             selector: 'textarea',
-            language : 'pt-BR',
+            language: 'pt-BR',
         });
+
+
     </script>
 </head>
 
@@ -60,12 +63,12 @@
                         <div class="sb-sidenav-menu-heading">Inicio</div>
                         <a class="nav-link" href="{{ route('home') }}">
                             <div class="sb-nav-link-icon"><i class='fas fa-chart-pie'></i></div>
-                           Clientes
+                            Clientes
                         </a>
                         <div class="sb-sidenav-menu-heading">Gerenciamento</div>
                         <a class="nav-link" href="{{ route('status.show') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-signal"></i></div>
-                          Status
+                            Status
                         </a>
                         <div class="sb-sidenav-menu-heading">Addons</div>
                         <a class="nav-link" href="charts.html">
@@ -102,6 +105,8 @@
         </div>
     </div>
 
+
+    @yield('script')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="{{ asset('js/scripts.js') }}"></script>
@@ -113,9 +118,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <script src="{{ asset('/resources/js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-
-    @yield('script')
     <script>
         $(document).ready(function() {
             $('#datatable').DataTable({
@@ -123,6 +127,10 @@
                     "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/pt-PT.json"
                 }
             });
+        });
+
+        $(document).ready(function() {
+            $('#select').select2();
         });
     </script>
 

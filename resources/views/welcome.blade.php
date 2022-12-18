@@ -24,6 +24,7 @@
                             <th>CPF</th>
                             <th>Email</th>
                             <th>Telefone</th>
+                            <th>Status</th>
                             <th>Data de cadastro</th>
                             <th>Detalhes</th>
                             <th>Excluir</th>
@@ -37,6 +38,7 @@
                                 <td>{{ $cliente->cpf ?? '-' }}</td>
                                 <td>{{ $cliente->email ?? '-' }}</td>
                                 <td>{{ $cliente->telefone ?? '-' }}</td>
+                                <td>{{ $cliente->status->name ?? '-' }}</td>
                                 <td> {{ \Carbon\Carbon::parse($cliente->created_at)->format('d/m/Y') }}</td>
                                 <td><a class="btn btn-primary" type="button"
                                         href="{{ route('clientes.edit', $cliente->id) }}"><i

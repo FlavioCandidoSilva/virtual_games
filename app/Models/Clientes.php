@@ -16,11 +16,16 @@ class Clientes extends Model
         'endereco',
         'cpf',
         'telefone',
-        'dataEntrega'
+        'dataEntrega',
+        'status_id'
 
     ];
 
     protected $dates = ['deleted_at'];
 
+    public function status()
+    {
+        return $this->hasOne(Status::class, 'id', 'status_id');
+    }
 
 }
