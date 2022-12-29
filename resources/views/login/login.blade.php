@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-Br">
 
 <head>
     <meta charset="utf-8" />
@@ -7,12 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Login - Virtual Games</title>
+    <title>Login - Virtual games</title>
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-primary">
+<style>
+    body {
+        background: url('/assets/img/mario2.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+</style>
+
+<body>
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -74,7 +83,7 @@
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Virtual games 2022</div>
+                        <div class="text-muted">Virtual games Copyright &copy; 2022</div>
                     </div>
                 </div>
             </footer>

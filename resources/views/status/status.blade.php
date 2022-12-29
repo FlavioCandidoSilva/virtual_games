@@ -26,8 +26,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $statu->name }}
                                 </h5>
-                                <a  href={{ route('status.edit', $statu) }}
-                                    class="btn btn-secondary float-end">Editar</a>
+                                <a href={{ route('status.edit', $statu) }} class="btn btn-secondary float-end">Editar</a>
 
                             </div>
                         </div>
@@ -57,16 +56,26 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>CPF</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th>Data de cadastro</th>
+                        <th>Status</th>
                         <th>Detalhes</th>
                         <th>Excluir</th>
                     </tr>
                 </thead>
                 <tbody>
-
+                    @forelse ($clientes as $cliente)
+                        <tr>
+                            <td>{{ $cliente->id }}</td>
+                            <td>{{ $cliente->nome }}</td>
+                            <td>{{ $cliente->status->name ?? '-' }}</td>
+                            <td><a class="btn btn-primary" type="button"
+                                    href="{{ route('clientes.edit', $cliente->id) }}"><i
+                                        class="fa-regular fa-pen-to-square"></i> Detalhes</a></td>
+                            <td><a class="btn btn-danger" type="button" value="Excluir" data-bs-toggle="modal"
+                                    data-bs-target="#modal-delete-cliente"><i class="fa-solid fa-trash"></i> Excluir</a>
+                        </tr>
+                        @include('modal.alertaDeletar')
+                    @empty
+                    @endforelse
                 </tbody>
             </table>
         </div>
@@ -77,6 +86,5 @@
 
 @section('script')
     <script>
-        $('#modal-status-cliente').on('show.bs.modal', function(event) {})
+        $('#modal-delete-cliente').on('show.bs.modal', function(event) {})
     </script>
-

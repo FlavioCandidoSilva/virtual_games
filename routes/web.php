@@ -41,5 +41,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/status/edit/{id}', [App\Http\Controllers\StatusController::class, 'editStatus'])->name('status.edit');
 
 
+    Route::get('/produtos', [App\Http\Controllers\ProdutosController::class, 'showProdutos'])->name('produtos.show');
+    Route::get('/produtos/create', [App\Http\Controllers\ProdutosController::class, 'createProdutos'])->name('produtos.create');
+    Route::post('/produtos/create', [App\Http\Controllers\ProdutosController::class, 'storeProdutos'])->name('produtos.store');
+    Route::get('/produtos/edit/{id}', [App\Http\Controllers\ProdutosController::class, 'updateProdutos'])->name('produtos.update');
 
 });

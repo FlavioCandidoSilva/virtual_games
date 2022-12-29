@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Status;
+use App\Models\Clientes;
 
 class StatusController extends Controller
 {
     public function showStatus()
     {
         $status = Status::all();
-        return view('status.status', compact('status'));
+        $clientes = Clientes::all();
+        return view('status.status', compact('status', 'clientes'));
     }
 
     public function createStatus()
@@ -21,9 +23,12 @@ class StatusController extends Controller
 
     public function storeStatus(Request $request){
 
-        $status = Status::create($request->all());
+        $validated = $request->validate([
+            'name' => 'required|max:15',
+        ]);
 
-        if(!$status){
+
+        if(!Status::create($request->all())){
             return redirect()->back()->with('error', 'Algo deu errado!');
         }
 

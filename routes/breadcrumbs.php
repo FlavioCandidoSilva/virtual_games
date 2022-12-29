@@ -24,3 +24,7 @@ Breadcrumbs::for('status.show', function ($trail) {
     $trail->parent('home');
     $trail->push('Listagem de status', route('status.show'));
 });
+
+Breadcrumbs::for('produtos.show', function ($trail) {
+    $trail->push('Produtos', route('produtos.show'));
+});
