@@ -37,8 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/status', [App\Http\Controllers\StatusController::class, 'showStatus'])->name('status.show');
     Route::get('/status/create', [App\Http\Controllers\StatusController::class, 'createStatus'])->name('status.create');
     Route::post('/status/create', [App\Http\Controllers\StatusController::class, 'storeStatus'])->name('status.store');
-    Route::post('/status/edit/{id}', [App\Http\Controllers\StatusController::class, 'updateStatus'])->name('status.update');
-    Route::get('/status/edit/{id}', [App\Http\Controllers\StatusController::class, 'editStatus'])->name('status.edit');
+    Route::get('/status/edit/{id}', [App\Http\Controllers\StatusController::class, 'updateStatus'])->name('status.update');
 
 
     Route::get('/produtos', [App\Http\Controllers\ProdutosController::class, 'showProdutos'])->name('produtos.show');

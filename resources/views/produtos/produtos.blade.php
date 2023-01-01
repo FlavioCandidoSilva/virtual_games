@@ -12,7 +12,7 @@
                 <i class="fas fa-table me-1"></i>
                 Visualização de produtos
                 <button class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#modal-produtos-cliente"><i
-                        class="fa-solid fa-user-plus"></i> Novo
+                        class="fa-solid fa-plus"></i> Novo
                     produto</button>
             </div>
             <div class="card-body">
@@ -29,9 +29,10 @@
                             <tr>
                                 <td>{{ $produto->id }}</td>
                                 <td>{{ $produto->name }}</td>
-                                <td><a class="btn btn-primary" type="button" data-bs-toggle="modal"
-                                        data-bs-url="{{ route('produtos.update', $produto->id) }}" name="{{$produto->name}}"
-                                        data-bs-target="#modal-produtos-edit"><i class="fa-regular fa-pen-to-square"></i>
+                                <td><a class="btn btn-secondary" type="button" data-bs-toggle="modal"
+                                        data-bs-url="{{ route('produtos.update', $produto->id) }}"
+                                        name="{{ $produto->name }}" data-bs-target="#modal-produtos-edit"><i
+                                            class="fa-regular fa-pen-to-square"></i>
                                         Editar</a></td>
                             </tr>
 
