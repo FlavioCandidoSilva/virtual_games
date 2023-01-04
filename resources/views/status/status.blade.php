@@ -26,8 +26,12 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $statu->name }}
                                 </h5>
-                                <button name="{{ $statu->name }}" data-bs-target="#modal-status-edit" data-bs-toggle="modal"
+                                {{-- <button name="{{ $statu->name }}" data-bs-target="#modal-status-edit" data-bs-toggle="modal"
                                     data-bs-url="{{ route('status.update', $statu) }}" color="{{ $statu->color }}"
+                                    class="btn btn-secondary float-end"><i class="fa-regular fa-pen-to-square"></i>
+                                    Editar</button> --}}
+                                      <button  data-bs-target="#modal-status-edit" data-bs-toggle="modal"
+                                    data-bs-url="{{ route('status.update', $statu) }}" data-id=""
                                     class="btn btn-secondary float-end"><i class="fa-regular fa-pen-to-square"></i>
                                     Editar</button>
 
@@ -91,6 +95,15 @@
     <script>
         $('#modal-delete-cliente').on('show.bs.modal', function(event) {})
 
+
+        $('#modal-status-edit').on('show.bs.modal', function(event) {
+            let url = event.relatedTarget.getAttribute('data-bs-url')
+            let name = event.relatedTarget.getAttribute('name');
+            let color = event.relatedTarget.getAttribute('color');
+            $('#name').attr('value', name);
+            $('#color').attr('value', color);
+            $('#form-status-edit').attr('action', url);
+        })
 
         $('#modal-status-edit').on('show.bs.modal', function(event) {
             let url = event.relatedTarget.getAttribute('data-bs-url')

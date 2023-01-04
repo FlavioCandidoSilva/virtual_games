@@ -29,10 +29,6 @@ class ClientesController extends Controller
     public function createClientes(Request $request)
     {
 
-        $validated = $request->validate([
-            'name' => 'required|max:45',
-        ]);
-
         if (!Clientes::create($request->all())) {
             return redirect()->back()->with('error', 'Algo deu errado!');
         }

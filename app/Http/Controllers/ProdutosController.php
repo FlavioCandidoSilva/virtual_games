@@ -26,12 +26,12 @@ class ProdutosController extends Controller
 
     }
 
-    // public function editProdutos(Request $request)
-    // {
-    //     $produtos = Produtos::find($request->id);
 
-    //     return view('produtos.produtos', compact('produtos'));
-    // }
+    public function editProdutos($id)
+    {
+        $produtos = Produtos::findOrFail($id);
+        return view('forms.produtosEdit', compact('produtos'));
+    }
 
     public function updateProdutos(Request $request, $id)
     {

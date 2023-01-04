@@ -36,6 +36,12 @@ class StatusController extends Controller
 
     }
 
+    public function editStatus($id)
+    {
+        $status = Status::findOrFail($id);
+        return view('forms.editStatus', compact('status'));
+    }
+    
     public function updateStatus(Request $request, $id)
     {
         $status = Status::findOrFail($id);

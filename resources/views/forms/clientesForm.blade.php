@@ -43,7 +43,7 @@
                         <div class="form-group mt-2 col-2">
                             <label for="exampleInputEmail1">Status do cliente</label>
                             <select name="status_id" class="form-control text-center" id="select">
-                                <option>Selecione um status</option>
+                                <option value=" ">Selecione um status</option>
                                 @foreach ($status as $statu)
                                     <option value="{{ $statu->id }}">
                                         {{ $statu->name }}
