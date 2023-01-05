@@ -44,6 +44,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/produtos/create', [App\Http\Controllers\ProdutosController::class, 'createProdutos'])->name('produtos.create');
     Route::post('/produtos/create', [App\Http\Controllers\ProdutosController::class, 'storeProdutos'])->name('produtos.store');
     Route::get('/produtos/edit/{id}', [App\Http\Controllers\ProdutosController::class, 'editProdutos'])->name('produtos.edit');
-    Route::get('/produtos/edit/{id}', [App\Http\Controllers\ProdutosController::class, 'updateProdutos'])->name('produtos.update');
+    Route::get('/produtos/update/{id}', [App\Http\Controllers\ProdutosController::class, 'updateProdutos'])->name('produtos.update');
 
 });

@@ -26,11 +26,10 @@ class ProdutosController extends Controller
 
     }
 
-
     public function editProdutos($id)
     {
         $produtos = Produtos::findOrFail($id);
-        return view('forms.produtosEdit', compact('produtos'));
+        return view('modal.modalProdutoContainer', compact('produtos'));
     }
 
     public function updateProdutos(Request $request, $id)

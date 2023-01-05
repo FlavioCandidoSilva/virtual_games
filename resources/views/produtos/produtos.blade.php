@@ -30,7 +30,7 @@
                                 <td>{{ $produto->id }}</td>
                                 <td>{{ $produto->name }}</td>
                                 <td><a class="btn btn-secondary" type="button" data-bs-toggle="modal"
-                                        data-bs-url="{{ route('produtos.update', $produto->id) }}"
+                                        data-url="{{ route('produtos.edit', $produto->id) }}"
                                         name="{{ $produto->name }}" data-bs-target="#modal-produtos-edit"><i
                                             class="fa-regular fa-pen-to-square"></i>
                                         Editar</a></td>
@@ -49,10 +49,13 @@
 @section('script')
     <script>
         $('#modal-produtos-edit').on('show.bs.modal', function(event) {
-            let url = event.relatedTarget.getAttribute('data-bs-url')
-            let name = event.relatedTarget.getAttribute('name');
-            $('#name').attr('value', name);
-            $('#form-produtos-edit').attr('action', url);
+            let url = event.relatedTarget.getAttribute('data-url')
+            const modalBody = document.querySelector('#produtoContainer');
+            let conteudo = fetch(url).then((res) => {
+                return res.text();
+            }).then((html) => {
+                modalBody.innerHTML = html;
+            }).catch((err) => console.log('Erro ao obter formulário do modal: ', err));
         })
     </script>
 @endsection
