@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Clientes;
 use App\Models\Status;
+use App\Models\Produtos;
+use App\Models\ProdutoCliente;
 use App\Http\Requests\StorePostRequest;
 
 class ClientesController extends Controller
@@ -22,14 +24,16 @@ class ClientesController extends Controller
 
         $clientes = Clientes::all();
         $status = Status::all();
+        $produtos = Produtos::all();
+        // $produtosCliente = $clientes->produtos;
 
-        return view('forms.clientesForm', compact('clientes', 'status'));
+        return view('forms.clientesForm', compact('clientes', 'status', 'produtos'));
     }
 
     public function createClientes(Request $request)
     {
 
-        if (!Clientes::create($request->all())) {
+        if (!Clientes::create($request->all())->produtos()->sync($request->input('produtos'))) {
             return redirect()->back()->with('error', 'Algo deu errado!');
         }
 
@@ -40,6 +44,7 @@ class ClientesController extends Controller
     {
 
         $clientes = Clientes::findOrFail($id);
+        dd($clientes->produtos);
         $status = Status::all();
 
         return view('forms.editClient', compact('clientes', 'status'));
@@ -48,7 +53,6 @@ class ClientesController extends Controller
 
     public function updateClientes(Request $request, $id)
     {
-
 
         $clientes = Clientes::findOrFail($id);
 

@@ -28,4 +28,9 @@ class Clientes extends Model
         return $this->hasOne(Status::class, 'id', 'status_id');
     }
 
+    public function produtos()
+    {
+        return $this->hasMany(Clientes::class, 'produtocliente', 'produto_id', 'cliente_id');
+    }
+
 }

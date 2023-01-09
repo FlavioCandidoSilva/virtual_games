@@ -1,4 +1,4 @@
-<form id="form-produtos-edit" action="" method="get">
+<form id="form-produtos-edit" action="{{ route('produtos.update', $produtos->id ) }}" method="get">
     @csrf
     <input type="hidden">
     <div class="modal-content">
