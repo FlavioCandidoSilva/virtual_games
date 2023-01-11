@@ -44,8 +44,10 @@ class ClientesController extends Controller
 
         $clientes = Clientes::findOrFail($id);
         $status = Status::all();
+        $produtos = Produtos::all();
 
-        return view('forms.editClient', compact('clientes', 'status'));
+
+        return view('forms.editClient', compact('clientes', 'status', 'produtos'));
     }
 
 
@@ -55,7 +57,7 @@ class ClientesController extends Controller
         $clientes = Clientes::findOrFail($id);
 
         if (!$clientes->update($request->all())) {
-
+            $clientes->update->produtos()->sync($request->input('produtos'));
             return redirect()->back()->with('error', 'Algo deu errado!');
         }
 

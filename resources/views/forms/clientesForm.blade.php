@@ -52,15 +52,16 @@
                             </select>
                         </div>
                         <div class="form-group mt-2 col-3">
-                            <label for="exampleInputProdutos">Selecione um produto</label>
-                            <select multiple="multiple" name="produtos[]" class="select" >
-                                <option value=" ">Selecione um produto</option>
-                                @foreach ($produtos as $produto)
-                                    <option value="{{ $produto->id }}">
-                                        {{ $produto->name }}
-                                    </option>
-                                @endforeach
-                            </select>
+                            <label for="exampleInputProdutos">Selecione os produtos</label>
+                            <div>
+                                <select multiple="multiple" id="floatingSelect"  name="produtos[]" class="select form-select" >
+                                    @foreach ($produtos as $produto)
+                                        <option value="{{ $produto->id }}">
+                                            {{ $produto->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,8 @@
 
                 <div class="form-group mt-2">
                     <label for="exampleInputEmail1">Email</label>
-                    <input name="email" value="{{ $clientes->email }}" type="email" class="form-control" placeholder="Digite o email">
+                    <input name="email" value="{{ $clientes->email }}" type="email" class="form-control"
+                        placeholder="Digite o email">
                 </div>
                 <div class="form-group mt-2">
                     <label for="exampleInputEmail1">Endereço</label>
@@ -28,27 +29,40 @@
                         <div class="form-group mt-2 col-2">
                             <label for="exampleInputEmail1">Cpf </label>
                             <input name="cpf" id="cpf" class="form-control cpf" data-mask="000.000.000-00"
-                                maxlength="14"  value="{{ $clientes->cpf }}"  placeholder="000.000.000-00">
+                                maxlength="14" value="{{ $clientes->cpf }}" placeholder="000.000.000-00">
                         </div>
                         <div class="form-group mt-2 col-2">
                             <label for="exampleInputEmail1">Telefone </label>
                             <input name="telefone" id="telefone" placeholder="(99) 9999-9999" data-mask="(99) 9999-9999"
-                                inputmode="text"  value="{{ $clientes->telefone }}" class="form-control" maxlength="9">
+                                inputmode="text" value="{{ $clientes->telefone }}" class="form-control" maxlength="9">
                         </div>
                         <div class="form-group mt-2 col-2">
                             <label for="exampleInputEmail1">Data de entrega </label>
-                            <input type="date" value="{{ $clientes->dataEntrega }}" class="form-control" name="dataEntrega">
+                            <input type="date" value="{{ $clientes->dataEntrega }}" class="form-control"
+                                name="dataEntrega">
                         </div>
                         <div class="form-group mt-2 col-2">
                             <label for="exampleInputEmail1">Status do cliente</label>
-                            <select name="status_id" class="form-control text-center" id="select">
-                                <option>Selecione um status</option>
+                            <select name="status_id" class="form-control text-center select">
+                                <option value=" ">Selecione um status</option>
                                 @foreach ($status as $statu)
-                                    <option value="{{ $statu->id }}" {{ $statu->id == $clientes->status_id ? 'selected' : '' }}>
+                                    <option value="{{ $statu->id }}"
+                                        {{ $statu->id == $clientes->status_id ? 'selected' : '' }}>
                                         {{ $statu->name }}
                                     </option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group mt-2 col-3">
+                            <label for="exampleInputProdutos">Selecione os produtos</label>
+                            <div>
+                                <select multiple="multiple" id="floatingSelect" name="produtos[]"
+                                    class="select form-select">
+                                    @foreach ($produtos as $produto)
+                                    <option value="{{ $produto->id }}"   @foreach($clientes->produtos as $clienteP){{$clienteP->pivot->produto_id == $produto->id ? 'selected': ''}}   @endforeach> {{ $produto->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,4 +84,3 @@
         </div>
     </form>
 @endsection
-
