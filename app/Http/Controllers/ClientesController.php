@@ -25,7 +25,6 @@ class ClientesController extends Controller
         $clientes = Clientes::all();
         $status = Status::all();
         $produtos = Produtos::all();
-        // $produtosCliente = $clientes->produtos;
 
         return view('forms.clientesForm', compact('clientes', 'status', 'produtos'));
     }
@@ -44,7 +43,6 @@ class ClientesController extends Controller
     {
 
         $clientes = Clientes::findOrFail($id);
-        dd($clientes->produtos);
         $status = Status::all();
 
         return view('forms.editClient', compact('clientes', 'status'));
