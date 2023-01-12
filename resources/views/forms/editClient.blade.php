@@ -10,8 +10,8 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nome <b style="color: red">*</b></label>
-                    <input name="nome " value="{{ $clientes->nome }}" class="form-control" maxlength="45"
-                        placeholder="Digite o nome completo" required>
+                    <input name="nome" value="{{ $clientes->nome }}" class="form-control" maxlength="45"
+                        placeholder="Digite o nome completo">
                 </div>
 
                 <div class="form-group mt-2">
@@ -60,8 +60,8 @@
                                     class="select form-select">
                                     @foreach ($produtos as $produto)
                                         <option value="{{ $produto->id }}"
-                                            {{ in_array($produto->id, $pCliente ) ? 'selected' : '' }}>
-                                            {{ $produto->name}}
+                                            {{ in_array($produto->id, $pCliente) ? 'selected' : '' }}>
+                                            {{ $produto->name }}
                                         </option>
                                     @endforeach
                                 </select>

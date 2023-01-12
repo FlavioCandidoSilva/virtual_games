@@ -55,10 +55,12 @@ class ClientesController extends Controller
     {
 
         $clientes = Clientes::findOrFail($id);
+        $clientes->update($clientes->produtos()->sync($request->input('produtos')));
 
         if (!$clientes->update($request->all())) {
             return redirect()->back()->with('error', 'Algo deu errado!');
         }
+
 
         return redirect()->route('home')->with('success', 'Cliente atualizado com sucesso!');
     }
