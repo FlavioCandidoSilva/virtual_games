@@ -45,9 +45,9 @@ class ClientesController extends Controller
         $clientes = Clientes::findOrFail($id);
         $status = Status::all();
         $produtos = Produtos::all();
+        $pCliente   = ProdutoCliente::where('cliente_id', $id)->pluck('produto_id')->toArray();
 
-        // dd($clientes->produtos()->sync($produtos));
-        return view('forms.editClient', compact('clientes', 'status', 'produtos'));
+        return view('forms.editClient', compact('clientes', 'status', 'produtos','pCliente'));
     }
 
 

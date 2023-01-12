@@ -59,7 +59,10 @@
                                 <select multiple="multiple" id="floatingSelect" name="produtos[]"
                                     class="select form-select">
                                     @foreach ($produtos as $produto)
-                                    <option value="{{ $produto->id }}"   @foreach($clientes->produtos as $clienteP){{$clienteP->produto_id == $produto->id ? 'selected': ''}}  @endforeach> {{ $produto->name }}</option>
+                                        <option value="{{ $produto->id }}"
+                                            {{ in_array($produto->id, $pCliente ) ? 'selected' : '' }}>
+                                            {{ $produto->name}}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
