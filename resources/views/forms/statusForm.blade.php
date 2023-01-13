@@ -1,9 +1,9 @@
 <div class="modal fade" id="modal-status-cliente" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
     tabindex="-1">
-    <form id="form-modal-status-cliente" action="{{ route('status.store')}}" method="POST">
-        @csrf
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form id="form-modal-status-cliente" action="{{ route('status.store') }}" method="POST">
+                @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel"> Criar um novo status
                     </h5>
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
+    </div>
     </form>
 </div>
