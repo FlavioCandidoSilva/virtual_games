@@ -15,6 +15,11 @@
                                 <input name="name" class="form-control" maxlength="45"
                                     placeholder="Digite o nome do produto" required>
                             </div>
+                            <div class="form-group mb-3">
+                                <label for="exampleInputName">Preço </label>
+                                <input name="valor" class="form-control" maxlength="45"
+                                    placeholder="Digite o valor do produto">
+                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                 <button type="submit" class="btn btn-primary">Salvar</button>

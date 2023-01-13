@@ -21,6 +21,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
+                            <th>Valor</th>
                             <th>Editar</th>
                         </tr>
                     </thead>
@@ -28,7 +29,8 @@
                         @foreach ($produtos as $produto)
                             <tr>
                                 <td>{{ $produto->id }}</td>
-                                <td>{{ $produto->name }}</td>
+                                <td>{{ $produto->name ?? '-' }}</td>
+                                <td> <b>R$: </b>{{ $produto->valor  ?? '-' }}</td>
                                 <td><a class="btn btn-secondary" type="button" data-bs-toggle="modal"
                                         data-url="{{ route('produtos.edit', $produto->id) }}"
                                         name="{{ $produto->name }}" data-bs-target="#modal-produtos-edit"><i
