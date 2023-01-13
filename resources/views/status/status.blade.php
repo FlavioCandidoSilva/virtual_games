@@ -26,15 +26,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $statu->name }}
                                 </h5>
-                                {{-- <button name="{{ $statu->name }}" data-bs-target="#modal-status-edit" data-bs-toggle="modal"
-                                    data-bs-url="{{ route('status.update', $statu) }}" color="{{ $statu->color }}"
-                                    class="btn btn-secondary float-end"><i class="fa-regular fa-pen-to-square"></i>
-                                    Editar</button> --}}
-                                      <button  data-bs-target="#modal-status-edit" data-bs-toggle="modal"
-                                    data-bs-url="{{ route('status.update', $statu) }}" data-id=""
-                                    class="btn btn-secondary float-end"><i class="fa-regular fa-pen-to-square"></i>
+                                <button name="{{ $statu->name }}" data-bs-target="#modal-status-edit"
+                                    data-bs-toggle="modal" data-bs-url="{{ route('status.update', $statu) }}"
+                                    color="{{ $statu->color }}" class="btn btn-secondary float-end"><i
+                                        class="fa-regular fa-pen-to-square"></i>
                                     Editar</button>
-
                             </div>
                         </div>
                         @include('forms.editStatus')
@@ -73,7 +69,14 @@
                         <tr>
                             <td>{{ $cliente->id }}</td>
                             <td>{{ $cliente->nome }}</td>
-                            <td>{{ $cliente->status->name ?? '-' }}</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar"
+                                        style="width: 100%; background-color: {{ $cliente->status->color ?? 'black' }}"
+                                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip"
+                                        data-bs-placement="top" title="{{ $cliente->status->name ?? 'Sem status' }}"></div>
+                                </div>
+                            </td>
                             <td><a class="btn btn-primary" type="button"
                                     href="{{ route('clientes.edit', $cliente->id) }}"><i
                                         class="fa-regular fa-pen-to-square"></i> Detalhes</a></td>
@@ -88,11 +91,11 @@
         </div>
     </div>
     @include('forms.statusForm')
-
 @endsection
 
 @section('script')
     <script>
+
         $('#modal-delete-cliente').on('show.bs.modal', function(event) {})
 
 
@@ -114,4 +117,5 @@
             $('#form-status-edit').attr('action', url);
         })
     </script>
+
 @endsection
