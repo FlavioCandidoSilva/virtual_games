@@ -8,7 +8,7 @@ use App\Models\Status;
 use App\Models\Produtos;
 use App\Models\ProdutoCliente;
 use App\Http\Requests\StorePostRequest;
-
+use Illuminate\Support\Facades\DB;
 class ClientesController extends Controller
 {
 
@@ -31,6 +31,10 @@ class ClientesController extends Controller
 
     public function createClientes(Request $request)
     {
+        if(db::table('clientes')->where('cpf', $request->input('cpf'))->count()){
+            return redirect()->back()->with('error', 'CPF já cadastrado!');
+        };
+
 
         if (!Clientes::create($request->all())->produtos()->sync($request->input('produtos'))) {
             return redirect()->back()->with('error', 'Algo deu errado!');

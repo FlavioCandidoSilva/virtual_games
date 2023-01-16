@@ -20,7 +20,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nome</th>
+                            <th>Produto</th>
                             <th>Valor</th>
                             <th>Editar</th>
                         </tr>

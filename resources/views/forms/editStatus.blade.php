@@ -10,7 +10,7 @@
                 <div class="modal-body">
                     <div class="card-body">
                         <div class="form-group mb-3">
-                            <label for="exampleInputName">Nome <b style="color: red">*</b></label>
+                            <label for="exampleInputName">Status <b style="color: red">*</b></label>
                             <input name="name" id="name" value=" " class="form-control" maxlength="45"
                                 placeholder="Digite o nome do status">
                         </div>
