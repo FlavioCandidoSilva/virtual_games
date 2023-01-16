@@ -12,10 +12,14 @@ use Illuminate\Support\Facades\DB;
 class ClientesController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
 
         $clientes =  Clientes::orderBy('created_at', 'DESC')->get();
+
+        $data_cadastro = \DateTime::createFromFormat('d/m/Y', $request->get('data_cadastro'));
+
+
         return view('welcome', compact('clientes'));
     }
 

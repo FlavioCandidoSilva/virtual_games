@@ -6,14 +6,21 @@
         </div>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active ">{{ Breadcrumbs::render('home') }}</li>
+
         </ol>
         <div class="card mb-4">
             <div class="card-header">
-                <i class="fas fa-table me-1"></i>
+                <i class="fas fa-table"></i>
                 Visualização de clientes
-                <a class="btn btn-primary float-end" href="{{ route('clientes.create') }}"><i
+                <button  class="btn btn-secondary float-end m-1"  data-bs-toggle="modal"
+                data-bs-target="#modal-filtro">
+                    <i class="fa-solid fa-filter"></i> Filtrar
+                </button>
+                @include('modal.modalFiltro')
+                <a class="btn btn-primary float-end mt-1" href="{{ route('clientes.create') }}"><i
                         class="fa-solid fa-user-plus"></i> Novo
                     cliente</a>
+
             </div>
             <div class="card-body">
                 <table id="datatable" class=" table table-striped">
@@ -63,3 +70,5 @@
     <script>
         $('#modal-delete-cliente').on('show.bs.modal', function(event) {})
     </script>
+
+@endsection
