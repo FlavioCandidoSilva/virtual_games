@@ -12,15 +12,13 @@
             <div class="card-header">
                 <i class="fas fa-table"></i>
                 Visualização de clientes
-                <button  class="btn btn-secondary float-end m-1"  data-bs-toggle="modal"
-                data-bs-target="#modal-filtro">
+                <button class="btn btn-secondary float-end m-1" data-bs-toggle="modal" data-bs-target="#modal-filtro">
                     <i class="fa-solid fa-filter"></i> Filtrar
                 </button>
                 @include('modal.modalFiltro')
                 <a class="btn btn-primary float-end mt-1" href="{{ route('clientes.create') }}"><i
                         class="fa-solid fa-user-plus"></i> Novo
                     cliente</a>
-
             </div>
             <div class="card-body">
                 <table id="datatable" class=" table table-striped">
@@ -61,14 +59,10 @@
             </div>
         </div>
     </div>
-
-
-
 @endsection
 
 @section('script')
     <script>
         $('#modal-delete-cliente').on('show.bs.modal', function(event) {})
     </script>
-
 @endsection

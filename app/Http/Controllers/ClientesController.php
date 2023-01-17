@@ -15,10 +15,13 @@ class ClientesController extends Controller
     public function index(Request $request)
     {
 
-        $clientes =  Clientes::orderBy('created_at', 'DESC')->get();
+        $clientes =  Clientes::orderBy('created_at', 'DESC');
 
-        $data_cadastro = \DateTime::createFromFormat('d/m/Y', $request->get('data_cadastro'));
+        if ($request->data_cadastro) {
+            $clientes->where('created_at', $request->data_cadastro);
+        }
 
+        $clientes = $clientes->get();
 
         return view('welcome', compact('clientes'));
     }
@@ -35,7 +38,7 @@ class ClientesController extends Controller
 
     public function createClientes(Request $request)
     {
-        if(db::table('clientes')->where('cpf', $request->input('cpf'))->count()){
+        if(!db::table('clientes')->where('cpf', $request->input('cpf'))->count()){
             return redirect()->back()->with('error', 'CPF já cadastrado!');
         };
 
