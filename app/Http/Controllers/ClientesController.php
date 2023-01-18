@@ -8,7 +8,9 @@ use App\Models\Status;
 use App\Models\Produtos;
 use App\Models\ProdutoCliente;
 use App\Http\Requests\StorePostRequest;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+
 class ClientesController extends Controller
 {
 
@@ -17,8 +19,10 @@ class ClientesController extends Controller
 
         $clientes =  Clientes::orderBy('created_at', 'DESC');
 
-        if ($request->data_cadastro) {
-            $clientes->where('created_at', $request->data_cadastro);
+
+        if ($request->data_inicio && $request->data_fim) {
+            $clientes->whereDate('created_at',  '>=',  $request->data_inicio);
+            $clientes->whereDate('created_at',  '<=',  $request->data_fim);
         }
 
         $clientes = $clientes->get();
@@ -38,7 +42,7 @@ class ClientesController extends Controller
 
     public function createClientes(Request $request)
     {
-        if(!db::table('clientes')->where('cpf', $request->input('cpf'))->count()){
+        if (!db::table('clientes')->where('cpf', $request->input('cpf'))->count()) {
             return redirect()->back()->with('error', 'CPF já cadastrado!');
         };
 
@@ -58,7 +62,7 @@ class ClientesController extends Controller
         $produtos = Produtos::all();
         $pCliente   = ProdutoCliente::where('cliente_id', $id)->pluck('produto_id')->toArray();
 
-        return view('forms.editClient', compact('clientes', 'status', 'produtos','pCliente'));
+        return view('forms.editClient', compact('clientes', 'status', 'produtos', 'pCliente'));
     }
 
 

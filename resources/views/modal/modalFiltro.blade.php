@@ -8,13 +8,13 @@
                 <div class="modal-body">
                     <div class="row container m-3">
                         <div class="col-6">
-                            <label for="data_inicio"><b>Data de cadastro </b></label>
-                            <input class="form-control" type="date" value="{{ request('data_cadastro') }}" name="data_cadastro">
+                            <label for="data_inicio"><b>Data de inicio </b></label>
+                            <input class="form-control" type="date" value="{{ request('data_inicio') }}" name="data_inicio">
                         </div>
-                        {{-- <div class="col-6">
-                            <label for="data_fim"><b>Data de fim </b></label>
+                        <div class="col-6">
+                            <label for="data_inicio"><b>Data fim </b></label>
                             <input class="form-control" type="date" value="{{ request('data_fim') }}" name="data_fim">
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
