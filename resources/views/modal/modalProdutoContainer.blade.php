@@ -1,4 +1,4 @@
-<form id="form-produtos-edit" action="{{ route('produtos.update', $produtos->id ) }}" method="get">
+<form id="form-produtos-edit" action="{{ route('produtos.update', $produtos->id) }}" method="get">
     @csrf
     <input type="hidden">
     <div class="modal-content">
@@ -10,13 +10,13 @@
             <div class="card-body">
                 <div class="form-group mb-3">
                     <label for="exampleInputName">Produto <b style="color: red">*</b></label>
-                    <input name="name" id="name" class="form-control" value="{{ $produtos->name }}" maxlength="45"
-                        placeholder="Digite o nome do produto">
+                    <input name="name" id="name" class="form-control" value="{{ $produtos->name }}"
+                        maxlength="45" placeholder="Digite o nome do produto">
                 </div>
                 <div class="form-group mb-3">
                     <label for="exampleInputName">Preço </label>
-                    <input name="valor" id="valor" class="form-control" value="{{ $produtos->valor }}" maxlength="45"
-                        placeholder="Digite o valor do produto">
+                    <input name="valor" id="valor" class="form-control" value="{{ $produtos->valor }}"
+                        maxlength="45" placeholder="Digite o valor do produto">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
