@@ -20,9 +20,12 @@ class ClientesController extends Controller
         $clientes =  Clientes::orderBy('created_at', 'DESC');
 
 
-        if ($request->data_inicio && $request->data_fim) {
+        if ($request->data_inicio && $request->data_fim ) {
             $clientes->whereDate('created_at',  '>=',  $request->data_inicio);
             $clientes->whereDate('created_at',  '<=',  $request->data_fim);
+        }
+        if($request->id_cliente){
+            $clientes->where('id', $request->id_cliente);
         }
 
         $clientes = $clientes->get();

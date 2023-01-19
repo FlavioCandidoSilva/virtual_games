@@ -15,6 +15,9 @@
                 <button class="btn btn-secondary float-end m-1" data-bs-toggle="modal" data-bs-target="#modal-filtro">
                     <i class="fa-solid fa-filter"></i> Filtrar
                 </button>
+                @if (request()->all() != null)
+                    <a href="{{ route('home') }}" class="btn btn-danger float-end m-1">remover filtro </a>
+                @endif
                 @include('modal.modalFiltro')
                 <a class="btn btn-primary float-end mt-1" href="{{ route('clientes.create') }}"><i
                         class="fa-solid fa-user-plus"></i> Novo

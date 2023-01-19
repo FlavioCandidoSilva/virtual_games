@@ -7,12 +7,6 @@
             <form action="{{ route('home') }}" method="GET">
                 <div class="modal-body">
                     <div class="row container m-3">
-                        @if (request()->all != null)
-                            <div class="form-group mb-3">
-                                <label for="data_inicio"><b>Remover filtro </b></label>
-                                <a href="{{ route('home') }}" class="btn btn-danger">Remover</a>
-                            </div>
-                        @endif
                         <div class="col-6">
                             <label for="data_inicio"><b>Data de inicio </b></label>
                             <input class="form-control" type="date" value="{{ request('data_inicio') }}"
@@ -22,6 +16,11 @@
                             <label for="data_inicio"><b>Data fim </b></label>
                             <input class="form-control" type="date" value="{{ request('data_fim') }}"
                                 name="data_fim">
+                        </div>
+                        <div class="col-6 mt-2">
+                            <label for="data_inicio"><b>Filtrar pelo ID </b></label>
+                            <input class="form-control" type="text" placeholder="ID do cliente" value="{{ request('id_cliente') }}" value="{{ request('id_cliente') }}"
+                                name="id_cliente">
                         </div>
                     </div>
                 </div>
