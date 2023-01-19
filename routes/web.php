@@ -34,16 +34,21 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/clientes/edit/{id}', [App\Http\Controllers\ClientesController::class, 'updateClientes'])->name('clientes.update');
     Route::post('/clientes/delete/{id}', [App\Http\Controllers\ClientesController::class, 'deleteClientes'])->name('clientes.delete');
 
+    //STATUS
     Route::get('/status', [App\Http\Controllers\StatusController::class, 'showStatus'])->name('status.show');
     Route::get('/status/create', [App\Http\Controllers\StatusController::class, 'createStatus'])->name('status.create');
     Route::post('/status/create', [App\Http\Controllers\StatusController::class, 'storeStatus'])->name('status.store');
     Route::get('/status/edit/{id}', [App\Http\Controllers\StatusController::class, 'updateStatus'])->name('status.update');
 
-
+    //PRODUTOS
     Route::get('/produtos', [App\Http\Controllers\ProdutosController::class, 'showProdutos'])->name('produtos.show');
     Route::get('/produtos/create', [App\Http\Controllers\ProdutosController::class, 'createProdutos'])->name('produtos.create');
     Route::post('/produtos/create', [App\Http\Controllers\ProdutosController::class, 'storeProdutos'])->name('produtos.store');
     Route::get('/produtos/edit/{id}', [App\Http\Controllers\ProdutosController::class, 'editProdutos'])->name('produtos.edit');
     Route::get('/produtos/update/{id}', [App\Http\Controllers\ProdutosController::class, 'updateProdutos'])->name('produtos.update');
 
+
+    //AUDITORIA
+    Route::get('/auditoria', [App\Http\Controllers\AuditoriaController::class, 'index'])->name('auditoria.auditoria');
+    Route::get('/auditoria/detalhes/{id}', [App\Http\Controllers\AuditoriaController::class, 'showAudit'])->name('auditoria.detalhes');
 });

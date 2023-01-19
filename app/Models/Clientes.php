@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-class Clientes extends Model
+use OwenIt\Auditing\Contracts\Auditable;
+
+class Clientes extends Model implements Auditable
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, \OwenIt\Auditing\Auditable;
 
     protected $fillable = [
         'nome',
@@ -19,6 +21,10 @@ class Clientes extends Model
         'dataEntrega',
         'status_id'
 
+    ];
+
+    protected $auditExclude = [
+        'published',
     ];
 
     protected $dates = ['deleted_at'];

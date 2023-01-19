@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 class ClientesController extends Controller
 {
 
+
     public function index(Request $request)
     {
 
