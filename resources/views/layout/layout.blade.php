@@ -76,9 +76,14 @@
                             Produtos
                         </a>
                         <div class="sb-sidenav-menu-heading">Administração</div>
-                        <a class="nav-link" href="{{ route('auditoria.auditoria') }}">
+                        <a class="nav-link" href="{{ route('auditoria.show') }}">
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-lock"></i></div>
                             Auditoria
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Usuários</div>
+                        <a class="nav-link" href="{{ route('usuarios.show') }}">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
+                            Usuários
                         </a>
                     </div>
                 </div>

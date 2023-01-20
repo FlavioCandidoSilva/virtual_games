@@ -49,6 +49,14 @@ Route::middleware(['auth'])->group(function () {
 
 
     //AUDITORIA
-    Route::get('/auditoria', [App\Http\Controllers\AuditoriaController::class, 'index'])->name('auditoria.auditoria');
+    Route::get('/auditoria', [App\Http\Controllers\AuditoriaController::class, 'index'])->name('auditoria.show');
     Route::get('/auditoria/detalhes/{id}', [App\Http\Controllers\AuditoriaController::class, 'showAudit'])->name('auditoria.detalhes');
+
+    //USUÁRIOS
+    Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'index'])->name('usuarios.show');
+    Route::post('/usuarios/activate/{id}', [App\Http\Controllers\UserController::class, 'restore'])->name('usuarios.activate');
+    Route::post('/usuarios/delete/{id}', [App\Http\Controllers\UserController::class, 'deleteUser'])->name('usuarios.delete');
+    Route::get('/usuarios/edit/{id}', [App\Http\Controllers\UserController::class, 'editUser'])->name('usuarios.edit');
+    Route::get('/usuarios/inactive', [App\Http\Controllers\UserController::class, 'inactiveUser'])->name('usuarios.inactive');
+
 });

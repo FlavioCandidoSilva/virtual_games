@@ -7,8 +7,8 @@
             </h1>
         </div>
         <div class="mt-2">
-            <a href="{{ route('auditoria.auditoria') }}" class="btn btn-secondary float-right mt-1"><i class="fa fa-arrow-circle-left"
-                aria-hidden="true"></i> Voltar</a>
+            <a href="{{ route('auditoria.show') }}" class="btn btn-secondary float-right mt-1"><i
+                    class="fa fa-arrow-circle-left" aria-hidden="true"></i> Voltar</a>
         </div>
         <div class="card mt-4">
             <div class="card-body p-0 table-responsive">
