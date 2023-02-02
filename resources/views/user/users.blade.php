@@ -65,11 +65,12 @@
                                                     class="btn btn-secondary"><i class="fa fa-pencil"
                                                         aria-hidden="true"></i>
                                                     Editar</a>
-
-                                                <button class="btn btn-danger mx-2" value="Excluir" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-delete-usuario"><i class="fa fa-user-times"
-                                                        aria-hidden="true"></i>
-                                                    Desativar</button>
+                                                @if ($usuario->id != Auth::user()->id)
+                                                    <button class="btn btn-danger mx-2" value="Excluir"
+                                                        data-bs-toggle="modal" data-bs-target="#modal-delete-usuario"><i
+                                                            class="fa fa-user-times" aria-hidden="true"></i>
+                                                        Desativar</button>
+                                                @endif
                                             </div>
                                         </div>
                                     @endif
@@ -84,3 +85,41 @@
         </div>
     </div>
 @endsection
+
+<script>
+    var ComprarCarro = {
+        "marca": [{
+                "valor": "Volkswagen",
+                "texto": "Volkswagen"
+            }, {
+                "valor": "Fiat",
+                "texto": "Fiat"
+            }, {
+                "valor": "Jeep",
+                "texto": "Jeep"
+            },
+            {
+                "valor": "Ferrari",
+                "texto": "Ferrari"
+            }, {
+                "valor": "BMW",
+                "texto": "BMW"
+            }, {
+                "valor": "Volvo",
+                "texto": "Volvo"
+            }, {
+                "valor": " ",
+                "texto": "Marca não encontrada"
+            }
+        ],
+
+    }
+
+    function novaOpcao(valor, texto) {
+        var newOption = document.createElement("option");
+        newOption.value = valor;
+        newOption.label = texto;
+        return newOption;
+    }
+    console.log(ComprarCarro.marca[1].valor);
+</script>

@@ -69,7 +69,7 @@
                                         <div class="float-right row">
                                             <div>
                                                 <button type="button" data-bs-target="#modal-ativar-usuario"
-                                                    data-bs-toggle="modal" class="btn btn-info mx-2"><i
+                                                    data-bs-toggle="modal" class="btn btn-success mx-2"><i
                                                         class="fa fa-user-plus" aria-hidden="true"></i>
                                                     Ativar</button>
                                             </div>
