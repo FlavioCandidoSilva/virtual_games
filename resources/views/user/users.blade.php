@@ -28,10 +28,6 @@
                             <th>
                                 Status
                             </th>
-                            <th>
-                                Tipo usuário
-                            </th>
-                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,8 +41,6 @@
                                     @else
                                         <span class="btn btn-danger">Inativo</span>
                                     @endif
-                                </td>
-                                <td>
                                 </td>
                                 <td>
                                     @if ($usuario->deleted_at !== null)

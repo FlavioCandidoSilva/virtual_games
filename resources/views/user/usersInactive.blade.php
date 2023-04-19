@@ -28,10 +28,6 @@
                             <th>
                                 Status
                             </th>
-                            <th>
-                                Tipo usuário
-                            </th>
-                            <td></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,8 +43,6 @@
                                     @endif
                                 </td>
                                 <td>
-                                </td>
-                                <td>
                                     @if ($usuario->deleted_at == null)
                                         <div class="float-right row">
                                             <div class="float-end row">
@@ -56,7 +50,8 @@
                                                     <a type="button" href="{{ route('usuarios.edit', $usuario->id) }}"
                                                         class="btn btn-secondary"><i class="fa fa-pencil"
                                                             aria-hidden="true"></i>
-                                                        Editar</a>
+                                                        Editar
+                                                    </a>
 
                                                     <button class="btn btn-danger mx-2" value="Excluir"
                                                         data-bs-toggle="modal" data-bs-target="#modal-delete-usuario"><i
