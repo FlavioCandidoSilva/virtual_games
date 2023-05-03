@@ -48,7 +48,7 @@ class UserController extends Controller
         // Atualiza o usuário no banco de dados
         if (!$usuarios->update($request->all())) {
             return redirect()->back()->with('error', 'Algo deu errado!');
-        }
+        } 
     
         return redirect()->route('usuarios.show')->with('success', 'Usuário atualizado com sucesso!');
     }
