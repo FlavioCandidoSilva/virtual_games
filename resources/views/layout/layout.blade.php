@@ -17,14 +17,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <script src="https://cdn.tiny.cloud/1/6z4wokhcg73gr9pok2p1im5h6uh27kdr8cov11arlri59rdw/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
-        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script>
         tinymce.init({
             selector: 'textarea',
             language: 'pt-BR',
         });
-
-
     </script>
 </head>
 
@@ -126,10 +124,13 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+          $(document).ready(function() {
             $('#datatable').DataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/pt-PT.json"
+                order: [],
+                searching: true,
+                lengthChange: true,
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json'
                 }
             });
         });

@@ -46,10 +46,14 @@ class ClientesController extends Controller
 
     public function createClientes(Request $request)
     {
-        // if (!db::table('clientes')->where('cpf', $request->input('cpf'))->count()) {
-        //     return redirect()->back()->with('error', 'CPF já cadastrado!');
-        // };
-
+        if (!preg_match('/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/', $request->input('cpf'))) {
+            return redirect()->back()->with('error', 'CPF inválido!');
+        }
+        
+        if (db::table('clientes')->where('cpf', $request->input('cpf'))->count()) {
+            return redirect()->back()->with('error', 'CPF já cadastrado!');
+        };
+        
 
         if (!Clientes::create($request->all())->produtos()->sync($request->input('produtos'))) {
             return redirect()->back()->with('error', 'Algo deu errado!');

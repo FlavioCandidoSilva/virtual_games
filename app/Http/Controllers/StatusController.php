@@ -50,6 +50,7 @@ class StatusController extends Controller
             return redirect()->back()->with('error', 'Algo deu errado!');
         }
 
+
         return redirect()->route('status.show')->with('success', 'Status atualizado com sucesso!');
     }
 
