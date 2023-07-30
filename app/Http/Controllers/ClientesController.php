@@ -10,26 +10,36 @@ use App\Models\ProdutoCliente;
 use App\Http\Requests\StorePostRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
-
+use Dompdf\Dompdf;
 class ClientesController extends Controller
 {
 
 
     public function index(Request $request)
     {
-
         $clientes =  Clientes::orderBy('created_at', 'DESC');
 
-
-        if ($request->data_inicio && $request->data_fim ) {
-            $clientes->whereDate('created_at',  '>=',  $request->data_inicio);
-            $clientes->whereDate('created_at',  '<=',  $request->data_fim);
+        if ($request->data_inicio && $request->data_fim) {
+            $clientes->whereDate('created_at', '>=', $request->data_inicio);
+            $clientes->whereDate('created_at', '<=', $request->data_fim);
         }
-        if($request->id_cliente){
+
+        if ($request->id_cliente) {
             $clientes->where('id', $request->id_cliente);
         }
 
         $clientes = $clientes->get();
+
+        // Verifica se a requisição é para gerar o PDF
+        if ($request->has('gerar_pdf')) {
+            $pdfHtml = view('relatorio.relatorio', compact('clientes'))->render();
+
+            $dompdf = new Dompdf();
+            $dompdf->loadHtml($pdfHtml);
+            $dompdf->render();
+
+            return $dompdf->stream('relatorio_clientes.pdf');
+        }
 
         return view('welcome', compact('clientes'));
     }

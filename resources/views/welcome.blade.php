@@ -36,6 +36,7 @@
                             <th>Data de cadastro</th>
                             <th>Detalhes</th>
                             <th>Excluir</th>
+                            <th>Termo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,6 +54,7 @@
                                             class="fa-regular fa-pen-to-square"></i> Detalhes</a></td>
                                 <td><a class="btn btn-danger" type="button" value="Excluir" data-bs-toggle="modal"
                                         data-bs-target="#modal-delete-cliente"><i class="fa-solid fa-trash"></i> Excluir</a>
+                                <td><a href="{{ route('home', ['gerar_pdf' => $cliente->id]) }}" target="_blank">Gerar Relatório em PDF</a></td>
                             </tr>
                             @include('modal.alertaDeletar')
                         @empty
