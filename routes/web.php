@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MessageController;
 
 
 // AUTENTICAÇÃO
@@ -59,5 +60,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/usuarios/edit/{id}', [App\Http\Controllers\UserController::class, 'editUser'])->name('usuarios.edit');
     Route::get('/usuarios/inactive', [App\Http\Controllers\UserController::class, 'inactiveUser'])->name('usuarios.inactive');
     Route::post('/usuarios/update/{id}', [App\Http\Controllers\UserController::class, 'updateUser'])->name('usuarios.update');
+
+
+    //MENSAGENS
+    Route::resource('messages', App\Http\Controllers\MessageController::class);
+
 
 });
